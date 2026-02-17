@@ -1,0 +1,7 @@
+{
+  "name": "Mahek Doshi's Adventurous Portfolio",
+  "description": "A fun, interactive, and high-energy portfolio for Mahek Doshi, featuring a Gemini-powered personal assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
