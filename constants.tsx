@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     title: "The Visual Voice",
     description: "Transforming static characters into a living dialogue where every curve and stroke carries the weight of your story.",
     image: "https://picsum.photos/seed/design1/800/600",
-    tags: ["poster design" "experimental typography ", "digital typography"]
+    tags: ["poster design", "experimental typography", "digital typography"]
   },
   {
     id: 2,
