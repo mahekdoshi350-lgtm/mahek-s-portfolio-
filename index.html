@@ -15,6 +15,26 @@
               outfit: ['Outfit', 'sans-serif'],
               quicksand: ['Quicksand', 'sans-serif'],
             },
+            animation: {
+              'spin-slow': 'spin 12s linear infinite',
+              'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'shutter-in': 'shutterIn 0.6s cubic-bezier(0.7, 0, 0.3, 1) forwards',
+              'shutter-out': 'shutterOut 0.6s cubic-bezier(0.7, 0, 0.3, 1) forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              shutterIn: {
+                '0%': { transform: 'translateY(100%)' },
+                '100%': { transform: 'translateY(0)' },
+              },
+              shutterOut: {
+                '0%': { transform: 'translateY(0)' },
+                '100%': { transform: 'translateY(-100%)' },
+              }
+            }
           },
         },
       }
@@ -25,6 +45,7 @@
     <style>
       body {
         font-family: 'Outfit', sans-serif;
+        overflow-x: hidden;
       }
       .font-quicksand {
         font-family: 'Quicksand', sans-serif;
@@ -37,25 +58,19 @@
         animation: float 3s ease-in-out infinite;
       }
       
-      /* Scroll Reveal Text Effects */
-      .scroll-color-text {
-        transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
-        color: #94a3b8; /* slate-400 initial */
+      /* Infinite Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
       }
-      
-      .scroll-color-text.is-visible {
-        color: inherit;
+      .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 40s linear infinite;
+        will-change: transform;
       }
-
-      .scroll-gradient-text {
-        transition: all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1);
-        filter: grayscale(100%) opacity(0.3);
-        transform: translateY(20px);
-      }
-
-      .scroll-gradient-text.is-visible {
-        filter: grayscale(0%) opacity(1);
-        transform: translateY(0);
+      .animate-marquee:hover {
+        animation-play-state: paused;
       }
 
       /* Film Grain / Noise effect */
@@ -81,17 +96,19 @@
         scroll-behavior: smooth;
       }
 
-      /* Fix for sticky stacking overflow */
-      #projects {
-        overflow: visible;
-      }
-
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
       .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
+      }
+
+      /* Performance optimization for horizontal scrolling */
+      .scroll-smooth-gpu {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        will-change: transform;
       }
     </style>
   <script type="importmap">

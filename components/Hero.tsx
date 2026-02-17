@@ -26,8 +26,7 @@ const Hero: React.FC = () => {
       {/* Layer 1: Professional Background (The Facade) */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2000&auto=format&fit=crop" 
-          alt="Professional Persona" 
+          src="portfolioimg.jpeg" alt= "mahek doshi" 
           className="w-full h-full object-cover grayscale brightness-50 contrast-125 transition-transform duration-1000 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply"></div>
